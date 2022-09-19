@@ -61,7 +61,6 @@ addBookbtn.addEventListener('click', (e) => {
 });
 
 function deleteBook(bookID) {
-  console.log(bookID);
   const index = books.findIndex((loopVariable) => loopVariable.id === bookID.toString());
 
   const bookDiv = document.querySelectorAll('.book');
