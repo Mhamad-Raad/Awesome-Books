@@ -1,4 +1,4 @@
-let id = 2;
+let id = localStorage.getItem('id') === null ? 2 : JSON.parse(localStorage.getItem('id'));
 let books = localStorage.getItem('books') === null ? 
 [
   {
@@ -54,23 +54,22 @@ addBookbtn.addEventListener('click', (e) => {
   <p class="author">${authorInput.value}</p>
   <button class="remove" onclick="deleteBook(${id})">Remove</button>
   <hr>
-</div>
+  </div>
   `;
   e.preventDefault();
   localStorage.setItem('books', JSON.stringify(books));
-  console.log(books);
+  localStorage.setItem('id', id);
 });
 
 
 function deleteBook(bookID) {
-  const divTitle = document.querySelectorAll('.book .title')
+  console.log(bookID);
+  const index = books.findIndex( (loopVariable) => loopVariable.id === bookID.toString());
+
  const bookDiv = document.querySelectorAll('.book')
- console.log(bookID);
- for (let i = 0; i < bookDiv.length; i++) {
-  if (divTitle[i].value === books[i].title) {
-    bookDiv[bookID].remove();
-  }
- }
+ 
  books = books.filter((book) => (book.id !== bookID.toString()));
+ bookDiv[index].remove();
+ localStorage.setItem('books', JSON.stringify(books));
 }
 
