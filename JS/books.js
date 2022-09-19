@@ -1,3 +1,4 @@
+let id = 2;
 let books = localStorage.getItem('books') === null ? 
 [
   {
@@ -39,10 +40,11 @@ const titleInput = document.querySelector('.title-input');
 const authorInput = document.querySelector('.author-input');
 
 addBookbtn.addEventListener('click', (e) => {
+  id+=1;
   books.push({
     title: titleInput.value,
     author: authorInput.value,
-    id: (books.length).toString(),
+    id: id.toString(),
   });
 
   bookSection.innerHTML += 
@@ -50,7 +52,7 @@ addBookbtn.addEventListener('click', (e) => {
   <div class="book">
   <p class="title">${titleInput.value}</p>
   <p class="author">${authorInput.value}</p>
-  <button class="remove" onclick="deleteBook(${books.length})">Remove</button>
+  <button class="remove" onclick="deleteBook(${id})">Remove</button>
   <hr>
 </div>
   `;
@@ -61,10 +63,14 @@ addBookbtn.addEventListener('click', (e) => {
 
 
 function deleteBook(bookID) {
-  
+  const divTitle = document.querySelectorAll('.book .title')
  const bookDiv = document.querySelectorAll('.book')
-
-  books = books.filter((book) => (book.id !== bookID.toString()));
-  bookDiv[bookID].remove();
+ console.log(bookID);
+ for (let i = 0; i < bookDiv.length; i++) {
+  if (divTitle[i].value === books[i].title) {
+    bookDiv[bookID].remove();
+  }
+ }
+ books = books.filter((book) => (book.id !== bookID.toString()));
 }
 
