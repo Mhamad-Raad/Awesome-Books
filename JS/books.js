@@ -1,30 +1,29 @@
 let id = localStorage.getItem('id') === null ? 2 : JSON.parse(localStorage.getItem('id'));
-let books = localStorage.getItem('books') === null ? 
-[
-  {
-  title : 'The Hobbit',
-  author: 'Shaker',
-  id: '0',
-  },
-  {
-  title : 'Harry Potter',
-  author: 'Jonathan',
-  id: '1',
-  },
-  {
-  title : 'Art of War',
-  author: 'San Tzu',
-  id: '2',
-  },
-] 
-: 
-JSON.parse(localStorage.getItem('books'));
+let books = localStorage.getItem('books') === null
+  ? [
+    {
+      title: 'The Hobbit',
+      author: 'Shaker',
+      id: '0',
+    },
+    {
+      title: 'Harry Potter',
+      author: 'Jonathan',
+      id: '1',
+    },
+    {
+      title: 'Art of War',
+      author: 'San Tzu',
+      id: '2',
+    },
+  ]
+  : JSON.parse(localStorage.getItem('books'));
 
 const bookSection = document.querySelector('.books');
 
-for(let i = 0; i < books.length; i++){
-  bookSection.innerHTML += 
-  `
+for (let i = 0; i < books.length; i += 1) {
+  bookSection.innerHTML
+  += `
   <div class="book">
   <p class="title">${books[i].title}</p>
   <p class="author">${books[i].author}</p>
@@ -35,20 +34,20 @@ for(let i = 0; i < books.length; i++){
 }
 
 const addBookbtn = document.querySelector('.add-btn');
-const deleteBookbtn = document.querySelector('.remove');
+document.querySelector('.remove');
 const titleInput = document.querySelector('.title-input');
 const authorInput = document.querySelector('.author-input');
 
 addBookbtn.addEventListener('click', (e) => {
-  id+=1;
+  id += 1;
   books.push({
     title: titleInput.value,
     author: authorInput.value,
     id: id.toString(),
   });
 
-  bookSection.innerHTML += 
-  `
+  bookSection.innerHTML
+  += `
   <div class="book">
   <p class="title">${titleInput.value}</p>
   <p class="author">${authorInput.value}</p>
@@ -61,15 +60,14 @@ addBookbtn.addEventListener('click', (e) => {
   localStorage.setItem('id', id);
 });
 
-
 function deleteBook(bookID) {
   console.log(bookID);
-  const index = books.findIndex( (loopVariable) => loopVariable.id === bookID.toString());
+  const index = books.findIndex((loopVariable) => loopVariable.id === bookID.toString());
 
- const bookDiv = document.querySelectorAll('.book')
- 
- books = books.filter((book) => (book.id !== bookID.toString()));
- bookDiv[index].remove();
- localStorage.setItem('books', JSON.stringify(books));
+  const bookDiv = document.querySelectorAll('.book');
+
+  books = books.filter((book) => (book.id !== bookID.toString()));
+  bookDiv[index].remove();
+  localStorage.setItem('books', JSON.stringify(books));
 }
-
+deleteBook();
