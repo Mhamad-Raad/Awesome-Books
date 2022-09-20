@@ -40,11 +40,11 @@ const authorInput = document.querySelector('.author-input');
 
 addBookbtn.addEventListener('click', (e) => {
   id += 1;
-  books.push({
+   books = books.concat([{
     title: titleInput.value,
     author: authorInput.value,
     id: id.toString(),
-  });
+  }]);
 
   bookSection.innerHTML
   += `
@@ -61,7 +61,7 @@ addBookbtn.addEventListener('click', (e) => {
 });
 
 function deleteBook(bookID) {
-  const index = books.findIndex((loopVariable) => loopVariable.id === bookID.toString());
+  const index = books.findIndex((loopVariable) => loopVariable.id === (bookID).toString());
 
   const bookDiv = document.querySelectorAll('.book');
 
