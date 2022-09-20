@@ -40,7 +40,7 @@ const authorInput = document.querySelector('.author-input');
 
 addBookbtn.addEventListener('click', (e) => {
   id += 1;
-   books = books.concat([{
+  books = books.concat([{
     title: titleInput.value,
     author: authorInput.value,
     id: id.toString(),
