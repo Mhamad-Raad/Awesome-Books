@@ -21,17 +21,17 @@ let books = localStorage.getItem('books') === null
 
 const bookSection = document.querySelector('.books');
 
-for (let i = 0; i < books.length; i += 1) {
-  bookSection.innerHTML
-  += `
-  <div class="book">
-  <p class="title">${books[i].title}</p>
-  <p class="author">${books[i].author}</p>
-  <button class="remove" onclick="deleteBook(${books[i].id})">Remove</button>
-  <hr>
-</div>
-  `;
-}
+// for (let i = 0; i < books.length; i += 1) {
+//   bookSection.innerHTML
+//   += `
+//   <div class="book">
+//   <p class="title">${books[i].title}</p>
+//   <p class="author">${books[i].author}</p>
+//   <button class="remove" onclick="deleteBook(${books[i].id})">Remove</button>
+//   <hr>
+// </div>
+//   `;
+// }
 
 const addBookbtn = document.querySelector('.add-btn');
 document.querySelector('.remove');
