@@ -1,72 +1,77 @@
-let id = localStorage.getItem('id') === null ? 2 : JSON.parse(localStorage.getItem('id'));
-let books = localStorage.getItem('books') === null
-  ? [
-    {
-      title: 'The Hobbit',
-      author: 'Shaker',
-      id: '0',
-    },
-    {
-      title: 'Harry Potter',
-      author: 'Jonathan',
-      id: '1',
-    },
-    {
-      title: 'Art of War',
-      author: 'San Tzu',
-      id: '2',
-    },
-  ]
-  : JSON.parse(localStorage.getItem('books'));
-
 const bookSection = document.querySelector('.books');
-
-// for (let i = 0; i < books.length; i += 1) {
-//   bookSection.innerHTML
-//   += `
-//   <div class="book">
-//   <p class="title">${books[i].title}</p>
-//   <p class="author">${books[i].author}</p>
-//   <button class="remove" onclick="deleteBook(${books[i].id})">Remove</button>
-//   <hr>
-// </div>
-//   `;
-// }
-
 const addBookbtn = document.querySelector('.add-btn');
-document.querySelector('.remove');
 const titleInput = document.querySelector('.title-input');
 const authorInput = document.querySelector('.author-input');
 
-addBookbtn.addEventListener('click', (e) => {
-  id += 1;
-  books = books.concat([{
-    title: titleInput.value,
-    author: authorInput.value,
-    id: id.toString(),
-  }]);
-
-  bookSection.innerHTML
-  += `
-  <div class="book">
-  <p class="title">${titleInput.value}</p>
-  <p class="author">${authorInput.value}</p>
-  <button class="remove" onclick="deleteBook(${id})">Remove</button>
-  <hr>
-  </div>
-  `;
-  e.preventDefault();
-  localStorage.setItem('books', JSON.stringify(books));
-  localStorage.setItem('id', id);
-});
-
-function deleteBook(bookID) {
-  const index = books.findIndex((loopVariable) => loopVariable.id === (bookID).toString());
-
-  const bookDiv = document.querySelectorAll('.book');
-
-  books = books.filter((book) => (book.id !== bookID.toString()));
-  bookDiv[index].remove();
-  localStorage.setItem('books', JSON.stringify(books));
+function deleteParent(){
+   
 }
-deleteBook();
+class Library {
+   book = [];
+  constructor(book) {
+    for (let i = 0; i < book.length; i += 1) {
+      this.book.push(book[i]);
+    }
+  }
+ 
+  Display(book = null) {
+    if(book === null) {
+        for(let i = 0; i < this.book.length; i += 1) {
+        bookSection.innerHTML
+        += `
+        <tr>
+            <td class="title-author">"${this.book[i].title}" by ${this.book[i].author}</td>
+            <td><button class="remove-btn">Remove</button></td>
+        </tr>
+        `;
+      }
+    } else {
+        bookSection.innerHTML
+        += `
+        <tr>
+            <td class="title-author">"${book.title}" by ${book.author}</td>
+            <td><button class="remove-btn">Remove</button></td>
+        </tr>
+        `;
+    } 
+    const removeBtn = document.querySelectorAll('.remove-btn');
+    for (let i = 0; i < removeBtn.length; i += 1) {
+      removeBtn[i].addEventListener('click', () => {
+        removeBtn[i].parentElement.parentElement.remove();; 
+        this.RemoveBook(this.book[i].id);
+      });
+  }
+    
+  }
+
+  AddBook(book) {
+    console.log('hjere');
+    this.book.push(book);
+    localStorage.setItem('books', JSON.stringify(this.book));
+    this.Display(book);
+  }
+
+  RemoveBook(id) {
+    this.book = this.book.filter((book) => book.id !== id);
+    localStorage.setItem('books', JSON.stringify(this.book));
+  }
+}
+var booksList = JSON.parse(localStorage.getItem('books'));
+var library;
+if(booksList !== null){
+  library = new Library(booksList);
+}
+else {
+  library = new Library([
+    {title: 'The Hobbit', author: 'Jonathan', id: '0'}, 
+    {title: 'The Lord of the Rings', author: 'Shaker', id: '1'},
+    {title: 'Destiny', author: 'Mhamad', id: '2'}
+    ]);
+}
+
+library.Display();
+
+addBookbtn.addEventListener('click', (e) => {
+  library.AddBook({title: titleInput.value, author: authorInput.value, id: (Math.random()*1000).toString()});
+  e.preventDefault();
+});
