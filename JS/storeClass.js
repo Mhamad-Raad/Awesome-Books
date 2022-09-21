@@ -18,7 +18,6 @@ export default class Store {
 
   static removeBook(id) {
     const books = Store.getBooks();
-
     books.forEach((book, index) => {
       if (book.id === id) {
         books.splice(index, 1);
