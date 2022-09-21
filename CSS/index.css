@@ -4,6 +4,7 @@ body {
   flex-direction: column;
   width: 100%;
   align-items: center;
+  font-family: "Raleway", sans-serif;
 }
 
 .spacer {

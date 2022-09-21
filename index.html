@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="./CSS/index.css">
     <link rel="stylesheet" href="./CSS/books.css">
     <link rel="stylesheet" href="./CSS/form.css">
+    <link rel="stylesheet" href="./CSS/navbar.css">
+    <link rel="stylesheet" href="./CSS/footer.css">
+    <link rel="stylesheet" href="./CSS/contact.css">
     <!-- add google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,25 +20,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
   </head>
   <body>
+    <nav>
+      <div class="logo"><p>Awesome Books</p></div>
+      
+      <ul class="navlist">
+        <li onclick="displayList()"> List</li>
+        <li><div class="v-line"></div></li>
+        <li onclick="newBook()">Add New</li>
+        <li><div class="v-line"></div></li>
+        <li onclick="contactInfo()">Contact</li>
+      </ul>
+    </nav>
     <header>
-      <h1>Awesome Books</h1> 
+      <h1>All awesome Books</h1>
     </header>
-    <table >
+    <table class="books-table hdn">
       <tbody class="books">
       </tbody>
     </table>
     <div class="spacer">
 
     </div>
-    <form class="add-book">
-      <h2>Add a new book</h2>
+    <form class="add-book mid-sections">
       <input type="text" class="title-input" placeholder="Title" required>
       <input type="text" class="author-input" placeholder="Author" required>
       <button type="submit" class="add-btn">Add</button>
     </form>
+    <section class="contact hdn">
+      <p class="contact-text">Do you have any questions or you just want to say "Hello"? <br> You can reach out to us!</p>
+      <ul class="contacts">
+        <li class="contact-list">Our e-email:mail@mail.com</li>
+        <li class="contact-list">Our phone number: 0043586534422</li>
+        <li class="contact-list">Our address: Streetname 22, 84503 City, Country</li>
+      </ul>
+    </section>
     <script type="module" src="./JS/books.js"></script>
     <script type="module" src="./JS/storeClass.js"></script>
     <script type="module" src="./JS/display.js"></script>
+    <script src="./JS/toggle.js"></script>
 
+    <footer>
+      <div class="footer">
+        <p class="footer-text">Awesome Books © 2022</p>
+      </div>
+    </footer>
   </body>
 </html>
