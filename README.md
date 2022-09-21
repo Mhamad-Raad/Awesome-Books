@@ -18,8 +18,6 @@
 ## Getting Started
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-  - N/A
 ### Setup
   ## run the following commands in your terminal
   - git clone https://github.com/Mhamad-Raad/Book-Store.git
