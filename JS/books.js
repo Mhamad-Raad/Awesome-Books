@@ -1,77 +1,39 @@
-const bookSection = document.querySelector('.books');
-const addBookbtn = document.querySelector('.add-btn');
-const titleInput = document.querySelector('.title-input');
-const authorInput = document.querySelector('.author-input');
+import Store from './storeClass.js';
 
-function deleteParent(){
-   
-}
-class Library {
-   book = [];
-  constructor(book) {
-    for (let i = 0; i < book.length; i += 1) {
-      this.book.push(book[i]);
-    }
-  }
- 
-  Display(book = null) {
-    if(book === null) {
-        for(let i = 0; i < this.book.length; i += 1) {
-        bookSection.innerHTML
-        += `
-        <tr>
-            <td class="title-author">"${this.book[i].title}" by ${this.book[i].author}</td>
-            <td><button class="remove-btn">Remove</button></td>
-        </tr>
-        `;
-      }
-    } else {
-        bookSection.innerHTML
-        += `
-        <tr>
-            <td class="title-author">"${book.title}" by ${book.author}</td>
-            <td><button class="remove-btn">Remove</button></td>
-        </tr>
-        `;
-    } 
-    const removeBtn = document.querySelectorAll('.remove-btn');
-    for (let i = 0; i < removeBtn.length; i += 1) {
-      removeBtn[i].addEventListener('click', () => {
-        removeBtn[i].parentElement.parentElement.remove();; 
-        this.RemoveBook(this.book[i].id);
-      });
-  }
-    
-  }
+import DisplayScreen from './display.js';
 
-  AddBook(book) {
-    console.log('hjere');
-    this.book.push(book);
-    localStorage.setItem('books', JSON.stringify(this.book));
-    this.Display(book);
-  }
-
-  RemoveBook(id) {
-    this.book = this.book.filter((book) => book.id !== id);
-    localStorage.setItem('books', JSON.stringify(this.book));
+let counter = 0;
+class Book {
+  constructor(title, author, id) {
+    this.title = title;
+    this.author = author;
+    this.id = id;
   }
 }
-var booksList = JSON.parse(localStorage.getItem('books'));
-var library;
-if(booksList !== null){
-  library = new Library(booksList);
-}
-else {
-  library = new Library([
-    {title: 'The Hobbit', author: 'Jonathan', id: '0'}, 
-    {title: 'The Lord of the Rings', author: 'Shaker', id: '1'},
-    {title: 'Destiny', author: 'Mhamad', id: '2'}
-    ]);
-}
 
-library.Display();
+// display books event
+document.addEventListener('DOMContentLoaded', DisplayScreen.displayBooks);
 
-addBookbtn.addEventListener('click', (e) => {
-  library.AddBook({title: titleInput.value, author: authorInput.value, id: (Math.random()*1000).toString()});
+// Add book event
+document.querySelector('.add-book').addEventListener('submit', (e) => {
+  counter += 1;
   e.preventDefault();
+  // getting form values
+  const title = document.querySelector('.title-input').value;
+  const author = document.querySelector('.author-input').value;
+  const id = counter;
+
+  // instatiate books
+  const book = new Book(title, author, id);
+
+  // Display Book to screen
+  DisplayScreen.addBookToList(book);
+  // Add to local Storage
+  Store.addBook(book);
+});
+
+document.querySelector('.books').addEventListener('click', (e) => {
+  DisplayScreen.deleteBook(e.target);
+  // Remove book from Local Storage
+  Store.removeBook(parseInt(e.target.classList[1], 10));
 });
