@@ -6,20 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Store</title>
     <link rel="stylesheet" href="./CSS/index.css">
+    <link rel="stylesheet" href="./CSS/books.css">
+    <link rel="stylesheet" href="./CSS/form.css">
+    <!-- add google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
       <h1>Awesome Books</h1> 
     </header>
-    <section class="books">
-    </section>
+    <table >
+      <tbody class="books">
+
+      </tbody>
+    </table>
+    <div class="spacer">
+
+    </div>
     <form class="add-book">
+      <h2>Add a new book</h2>
       <input type="text" class="title-input" placeholder="Title" required>
-      <br>
       <input type="text" class="author-input" placeholder="Author" required>
-      <br>
-      <button type="button" class="add-btn">Add</button>
+      <button type="submit" class="add-btn">Add</button>
     </form>
-    <script src="./JS/books.js"></script>
+    <script type="module" src="./JS/books.js"></script>
+    <script type="module" src="./JS/storeClass.js"></script>
+    <script type="module" src="./JS/display.js"></script>
+
   </body>
 </html>

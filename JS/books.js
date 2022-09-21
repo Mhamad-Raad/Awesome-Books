@@ -1,72 +1,39 @@
-let id = localStorage.getItem('id') === null ? 2 : JSON.parse(localStorage.getItem('id'));
-let books = localStorage.getItem('books') === null
-  ? [
-    {
-      title: 'The Hobbit',
-      author: 'Shaker',
-      id: '0',
-    },
-    {
-      title: 'Harry Potter',
-      author: 'Jonathan',
-      id: '1',
-    },
-    {
-      title: 'Art of War',
-      author: 'San Tzu',
-      id: '2',
-    },
-  ]
-  : JSON.parse(localStorage.getItem('books'));
+import Store from './storeClass.js';
 
-const bookSection = document.querySelector('.books');
+import DisplayScreen from './display.js';
 
-for (let i = 0; i < books.length; i += 1) {
-  bookSection.innerHTML
-  += `
-  <div class="book">
-  <p class="title">${books[i].title}</p>
-  <p class="author">${books[i].author}</p>
-  <button class="remove" onclick="deleteBook(${books[i].id})">Remove</button>
-  <hr>
-</div>
-  `;
+let counter = 0;
+class Book {
+  constructor(title, author, id) {
+    this.title = title;
+    this.author = author;
+    this.id = id;
+  }
 }
 
-const addBookbtn = document.querySelector('.add-btn');
-document.querySelector('.remove');
-const titleInput = document.querySelector('.title-input');
-const authorInput = document.querySelector('.author-input');
+// display books event
+document.addEventListener('DOMContentLoaded', DisplayScreen.displayBooks);
 
-addBookbtn.addEventListener('click', (e) => {
-  id += 1;
-  books = books.concat([{
-    title: titleInput.value,
-    author: authorInput.value,
-    id: id.toString(),
-  }]);
-
-  bookSection.innerHTML
-  += `
-  <div class="book">
-  <p class="title">${titleInput.value}</p>
-  <p class="author">${authorInput.value}</p>
-  <button class="remove" onclick="deleteBook(${id})">Remove</button>
-  <hr>
-  </div>
-  `;
+// Add book event
+document.querySelector('.add-book').addEventListener('submit', (e) => {
+  counter += 1;
   e.preventDefault();
-  localStorage.setItem('books', JSON.stringify(books));
-  localStorage.setItem('id', id);
+  // getting form values
+  const title = document.querySelector('.title-input').value;
+  const author = document.querySelector('.author-input').value;
+  const id = counter;
+
+  // instatiate books
+  const book = new Book(title, author, id);
+
+  // Display Book to screen
+  DisplayScreen.addBookToList(book);
+  // Add to local Storage
+  Store.addBook(book);
 });
 
-function deleteBook(bookID) {
-  const index = books.findIndex((loopVariable) => loopVariable.id === (bookID).toString());
-
-  const bookDiv = document.querySelectorAll('.book');
-
-  books = books.filter((book) => (book.id !== bookID.toString()));
-  bookDiv[index].remove();
-  localStorage.setItem('books', JSON.stringify(books));
-}
-deleteBook();
+document.querySelector('.books').addEventListener('click', (e) => {
+  DisplayScreen.deleteBook(e.target);
+  // Remove book from Local Storage
+  Store.removeBook(parseInt(e.target.classList[1], 10));
+});
