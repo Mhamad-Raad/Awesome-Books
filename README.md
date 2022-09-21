@@ -19,11 +19,11 @@
 To get a local copy up and running follow these simple example steps.
 
 ### Setup
-  ## run the following commands in your terminal
+   run the following commands in your terminal
   - git clone https://github.com/Mhamad-Raad/Book-Store.git
   - git checkout main
 ### Install
-  ## you can isntall the following linters into your proejct through node, by these commands:
+   you can install the following linters into your proejct through node, by these commands:
   - Light House: npm install -g @lhci/cli@0.7.x
   - Webhint: npm install --save-dev hint@7.x
   - Stylelint: npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x    stylelint-csstree-validator@1.x
