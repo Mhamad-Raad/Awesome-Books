@@ -23,15 +23,18 @@ button {
   box-shadow: 3px 3px 3px black;
 }
 
-input, td, button {
-  font-family: 'Raleway', sans-serif;
+input,
+td,
+button {
+  font-family: "Raleway", sans-serif;
 }
 
 *::-webkit-input-placeholder {
   color: black;
 }
 
-h1, h2 {
-  font-family: 'Shadows Into Light', cursive;
+h1,
+h2 {
+  font-family: "Shadows Into Light", cursive;
   font-weight: 900;
 }
