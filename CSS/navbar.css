@@ -34,6 +34,7 @@ a:visited {
   margin-left: 10px;
   margin-top: 0;
   margin-bottom: 0;
+  cursor: pointer;
 }
 
 .logo > p {
@@ -45,4 +46,16 @@ a:visited {
   height: 100%;
   width: 1.5px;
   background-color: rgb(23, 31, 88);
+}
+
+.navlist > li {
+  cursor: pointer;
+}
+
+.navlist > li:hover {
+  color: rgb(80, 96, 214);
+}
+
+.active-nav {
+  color: rgb(55, 69, 175);
 }

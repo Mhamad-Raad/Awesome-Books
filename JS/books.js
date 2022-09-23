@@ -25,7 +25,8 @@ document.querySelector('.add-book').addEventListener('submit', (e) => {
 
   // instatiate books
   const book = new Book(title, author, id);
-
+  document.querySelector('.title-input').value = '';
+  document.querySelector('.author-input').value = '';
   // Display Book to screen
   DisplayScreen.addBookToList(book);
   // Add to local Storage
