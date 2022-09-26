@@ -5,7 +5,7 @@ const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
 
 const getDateTime = () => {
   const now = DateTime.now();
-  const hour = now.c.hour > 12 ? now.c.hour - 12 : now.c.hour; 
+  const hour = now.c.hour > 12 ? now.c.hour - 12 : now.c.hour;
   const hourCounter = now.c.hour > 12 ? 'PM' : 'AM';
   const minute = now.c.minute < 10 ? `0${now.c.minute}` : now.c.minute;
   const second = now.c.second < 10 ? `0${now.c.second}` : now.c.second;
@@ -16,4 +16,4 @@ const getDateTime = () => {
    hour + ':' + minute + ':' + second + ' ' + hourCounter;
 };
 
- export { getDateTime };
+module.exports = { getDateTime };
