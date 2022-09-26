@@ -15,7 +15,6 @@
       "no-param-reassign": "off",
       "eol-last": "off",
       "no-nested-ternary": "off",
-      "prefer-template": false,
       "import/extensions": [ 1, {
         "js": "always", "json": "always"
       }]
