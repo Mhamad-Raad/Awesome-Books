@@ -3,9 +3,9 @@ const bookTable = document.querySelector('.books-table');
 const header = document.getElementsByTagName('h1');
 const form = document.querySelector('.add-book');
 const contact = document.querySelector('.contact');
-let listNav = document.querySelector('.listNav');
-let addNewNav = document.querySelector('.addNewNav');
-let constactNav = document.querySelector('.contactMe');
+const listNav = document.querySelector('.listNav');
+const addNewNav = document.querySelector('.addNewNav');
+const constactNav = document.querySelector('.contactMe');
 
 function displayList() {
   bookTable.classList.add('mid-section');
