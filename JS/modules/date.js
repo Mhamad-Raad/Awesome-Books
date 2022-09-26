@@ -3,7 +3,7 @@ import { DateTime } from './luxon.js';
 const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
   'August', 'September', 'October', 'November', 'December'];
 
-const getDateTime = () => {
+export const getDateTime = () => {
   const now = DateTime.now();
   const hour = now.c.hour > 12 ? now.c.hour - 12 : now.c.hour;
   const hourCounter = now.c.hour > 12 ? 'PM' : 'AM';
@@ -15,5 +15,3 @@ const getDateTime = () => {
   return month[now.c.month - 1] + ' ' + now.c.day + dayCounter + ` ${now.c.year}, `
   + hour + ':' + minute + ':' + second + ' ' + hourCounter;
 };
-
-export default { getDateTime };
