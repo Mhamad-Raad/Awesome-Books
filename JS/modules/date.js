@@ -12,8 +12,7 @@ const getDateTime = () => {
 
   const dayCounter = now.c.day === 1 ? 'st' : (now.c.day === 2 ? 'nd' : (now.c.day === 3 ? 'rd' : 'th'));
   // eslint-disable-line prefer-template
-  return month[now.c.month - 1] + ' '
-  + hour + ':' + minute + ':' + second + ' ' + hourCounter;
+  return hour + ':' + minute + ':' + second;
 };
 
 export default getDateTime;
