@@ -1,6 +1,7 @@
-import { DateTime } from "./luxon.js";
-let month= ["January","February","March","April","May","June","July",
-            "August","September","October","November","December"];
+import { DateTime } from './luxon.js';
+
+const month = ['January','February','March','April','May','June','July',
+            'August','September','October','November','December'];
 
 const getDateTime = () => {
   const now = DateTime.now();
