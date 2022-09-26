@@ -11,7 +11,7 @@ export const getDateTime = () => {
   const second = now.c.second < 10 ? `0${now.c.second}` : now.c.second;
 
   const dayCounter = now.c.day === 1 ? 'st' : (now.c.day === 2 ? 'nd' : (now.c.day === 3 ? 'rd' : 'th'));
-
+  // eslint-disable-line prefer-template
   return month[now.c.month - 1] + ' ' + now.c.day + dayCounter + ` ${now.c.year}, `
   + hour + ':' + minute + ':' + second + ' ' + hourCounter;
 };
