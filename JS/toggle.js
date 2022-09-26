@@ -7,7 +7,7 @@ const listNav = document.querySelector('.listNav');
 const addNewNav = document.querySelector('.addNewNav');
 const constactNav = document.querySelector('.contactMe');
 
-function displayList() {
+const displayList = () => {
   bookTable.classList.add('mid-section');
   bookTable.classList.remove('hdn');
   form.classList.remove('mid-section');
@@ -19,7 +19,7 @@ function displayList() {
   constactNav.classList.remove('active-nav');
 }
 
-function newBook() {
+const newBook = () => {
   bookTable.classList.remove('mid-section');
   bookTable.classList.add('hdn');
   form.classList.add('mid-section');
@@ -32,7 +32,7 @@ function newBook() {
   constactNav.classList.remove('active-nav');
 }
 
-function contactInfo() {
+const contactInfo = () => {
   bookTable.classList.remove('mid-section');
   bookTable.classList.add('hdn');
   form.classList.remove('mid-section');
