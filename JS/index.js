@@ -1,7 +1,7 @@
 import Store from './storeClass.js';
 import Book from './modules/book.js';
 import * as DisplayScreen from './display.js';
-import { getDateTime } from './modules/date.js';
+import getDateTime from './modules/date.js';
 
 let counter = 0;
 
