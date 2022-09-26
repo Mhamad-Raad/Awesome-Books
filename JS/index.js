@@ -1,15 +1,8 @@
 import Store from './storeClass.js';
-
-import DisplayScreen from './display.js';
+import {Book} from './modules/book.js';
+import * as DisplayScreen from './display.js';
 
 let counter = 0;
-class Book {
-  constructor(title, author, id) {
-    this.title = title;
-    this.author = author;
-    this.id = id;
-  }
-}
 
 // display books event
 document.addEventListener('DOMContentLoaded', DisplayScreen.displayBooks);

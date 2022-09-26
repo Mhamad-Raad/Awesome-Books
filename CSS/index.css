@@ -1,3 +1,9 @@
+@import url(./books.css);
+@import url(./contact.css);
+@import url(./footer.css);
+@import url(./form.css);
+@import url(./navbar.css);
+
 body {
   margin: 0;
   display: flex;
