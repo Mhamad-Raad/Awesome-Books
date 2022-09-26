@@ -1,4 +1,4 @@
-import Store from './storeClass.js';
+import * as Store from './storeClass.js';
 
 const bookSection = document.querySelector('.books');
 

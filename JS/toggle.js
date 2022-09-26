@@ -17,7 +17,7 @@ const displayList = () => {
   listNav.classList.add('active-nav');
   addNewNav.classList.remove('active-nav');
   constactNav.classList.remove('active-nav');
-}
+};
 
 const newBook = () => {
   bookTable.classList.remove('mid-section');
@@ -30,7 +30,7 @@ const newBook = () => {
   listNav.classList.remove('active-nav');
   addNewNav.classList.add('active-nav');
   constactNav.classList.remove('active-nav');
-}
+};
 
 const contactInfo = () => {
   bookTable.classList.remove('mid-section');
@@ -43,4 +43,4 @@ const contactInfo = () => {
   listNav.classList.remove('active-nav');
   addNewNav.classList.remove('active-nav');
   constactNav.classList.add('active-nav');
-}
+};
