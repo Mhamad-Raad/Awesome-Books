@@ -1,0 +1,11 @@
+#time {
+  display: flex;
+  justify-content: flex-end;
+  width: 87%;
+  font-size: 14px;
+  font-weight: 900;
+  color: black;
+  font-family: "Raleway", sans-serif;
+  margin-top: 5px;
+  text-align: right;
+}

@@ -1,18 +1,19 @@
-import Store from './storeClass.js';
-
-import DisplayScreen from './display.js';
+import * as Store from './storeClass.js';
+import Book from './modules/book.js';
+import * as DisplayScreen from './display.js';
+import getDateTime from './modules/date.js';
 
 let counter = 0;
-class Book {
-  constructor(title, author, id) {
-    this.title = title;
-    this.author = author;
-    this.id = id;
-  }
-}
 
 // display books event
 document.addEventListener('DOMContentLoaded', DisplayScreen.displayBooks);
+
+const displayTime = () => setInterval(() => {
+  document.querySelector('#time').innerHTML = getDateTime();
+}, 1000);
+
+// display time
+window.addEventListener('load', displayTime);
 
 // Add book event
 document.querySelector('.add-book').addEventListener('submit', (e) => {

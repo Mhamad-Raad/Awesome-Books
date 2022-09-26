@@ -3,11 +3,11 @@ const bookTable = document.querySelector('.books-table');
 const header = document.getElementsByTagName('h1');
 const form = document.querySelector('.add-book');
 const contact = document.querySelector('.contact');
-let listNav = document.querySelector('.listNav');
-let addNewNav = document.querySelector('.addNewNav');
-let constactNav = document.querySelector('.contactMe');
+const listNav = document.querySelector('.listNav');
+const addNewNav = document.querySelector('.addNewNav');
+const constactNav = document.querySelector('.contactMe');
 
-function displayList() {
+const displayList = () => {
   bookTable.classList.add('mid-section');
   bookTable.classList.remove('hdn');
   form.classList.remove('mid-section');
@@ -17,9 +17,9 @@ function displayList() {
   listNav.classList.add('active-nav');
   addNewNav.classList.remove('active-nav');
   constactNav.classList.remove('active-nav');
-}
+};
 
-function newBook() {
+const newBook = () => {
   bookTable.classList.remove('mid-section');
   bookTable.classList.add('hdn');
   form.classList.add('mid-section');
@@ -30,9 +30,9 @@ function newBook() {
   listNav.classList.remove('active-nav');
   addNewNav.classList.add('active-nav');
   constactNav.classList.remove('active-nav');
-}
+};
 
-function contactInfo() {
+const contactInfo = () => {
   bookTable.classList.remove('mid-section');
   bookTable.classList.add('hdn');
   form.classList.remove('mid-section');
@@ -43,4 +43,4 @@ function contactInfo() {
   listNav.classList.remove('active-nav');
   addNewNav.classList.remove('active-nav');
   constactNav.classList.add('active-nav');
-}
+};
