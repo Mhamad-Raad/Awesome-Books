@@ -2,12 +2,6 @@ import Store from './storeClass.js';
 
 const bookSection = document.querySelector('.books');
 
-const displayBooks = () => {
-  const books = Store.getBooks();
-
-  books.forEach((book) => addBookToList(book));
-};
-
 const addBookToList = (book) => {
   bookSection.innerHTML += `
     <tr>
@@ -23,4 +17,10 @@ const deleteBook = (element) => {
   }
 };
 
-export {displayBooks, addBookToList, deleteBook};
+const displayBooks = () => {
+  const books = Store.getBooks();
+
+  books.forEach((book) => addBookToList(book));
+};
+
+export { displayBooks, addBookToList, deleteBook };
