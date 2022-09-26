@@ -15,4 +15,4 @@ const getDateTime = () => {
   return `${month[now.c.month - 1]} ${now.c.day}${dayCounter} ${now.c.year}, ${hour}:${minute}:${second} ${hourCounter}`;
 };
 
-export{ getDateTime as default};
+export { getDateTime };
