@@ -1,5 +1,5 @@
-/* eslint-disable brace-style, guard-for-in, max-len, no-loop-func, no-restricted-globals, no-underscore-dangle, no-use-before-define, no-useless-escape, prefer-const, prefer-rest-params */
-/* eslint-disable class-methods-use-this, default-case, max-classes-per-file, max-len, no-continue, no-nested-ternary, no-plusplus, no-restricted-syntax, no-unused-vars */
+/* eslint no-use-before-define: 0 */
+/* eslint-disable */
 // these aren't really private, but nor are they really useful to document
 
 /**
