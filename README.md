@@ -12,8 +12,7 @@
 - JavaScript
 
 ## Live Demo
-[Live Demo Link]
-
+[Demo](https://mhamad-raad.github.io/Awesome-Books/)
 
 ## Getting Started
 To get a local copy up and running follow these simple example steps.
