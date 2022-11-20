@@ -14,6 +14,7 @@ const displayList = () => {
   form.classList.add('hdn');
   contact.classList.remove('mid-section');
   contact.classList.add('hdn');
+  header[0].textContent = "All Awesome Books";
   listNav.classList.add('active-nav');
   addNewNav.classList.remove('active-nav');
   constactNav.classList.remove('active-nav');

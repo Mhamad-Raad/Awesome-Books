@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/53f3655a6e.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <nav>
@@ -25,7 +28,17 @@
         <li><div class="v-line"></div></li>
         <li onclick="contactInfo()" class="contactMe">Contact</li>
       </ul>
+        <i class="fa-solid fa-bars open"></i>
+        <div class="close"><b>X</b></div>
     </nav>
+    <nav class="mobile-nav">
+      <ul class="mobile-nav-list">
+        <li onclick="displayList()" class="listNav"> List</li>
+        <li onclick="newBook()" class="addNewNav">Add New</li>
+        <li onclick="contactInfo()" class="contactMe">Contact</li>
+      </ul>
+    </nav>
+   
     <div id="time"></div>
     <header>
       <h1>All awesome Books</h1>
@@ -45,14 +58,13 @@
     <section class="contact hdn">
       <p class="contact-text">Do you have any questions or you just want to say "Hello"? <br> You can reach out to us!</p>
       <ul class="contacts">
-        <li class="contact-list">Our e-email:mail@mail.com</li>
-        <li class="contact-list">Our phone number: 0043586534422</li>
-        <li class="contact-list">Our address: Streetname 22, 84503 City, Country</li>
+        <li class="contact-list">my email hamaraad883@gmail.com/li>
       </ul>
     </section>
     <script type="module" src="./JS/index.js"></script>
     <script type="module" src="./JS/storeClass.js"></script>
     <script type="module" src="./JS/display.js"></script>
+    <script src="./JS/Nav.js"></script>
     <script src="./JS/toggle.js"></script>
 
     <footer>
